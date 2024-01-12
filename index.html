@@ -21,9 +21,10 @@
         // LaunchDarkly contexts dashboard soon after you run the demo.
         const context = {
           kind: 'user',
-          key: 'github-example-context-key',
+          key: 'bozas.co.uk-context-key',
           name: 'Steven Bozas'
         };
+        context["name"] = prompt("What is your name ?")
 
         var div = document.createElement('div');
         document.body.appendChild(div);
@@ -31,8 +32,22 @@
 
         const ldclient = LDClient.initialize(clientSideID, context);
 
+
         function render() {
-          const flagValue = ldclient.variation(flagKey, true);
+          const flagValue = ldclient.variation(flagKey, false);
+
+          //adding my own code here:
+          // Check the value of the feature flag to determine whether to display the div
+          var myMessage = "Your paragraph is here " + context["name"]  + "- on bozas.co.uk, and the feature flag is currently : "
+        if (flagValue) {
+          div.style.display = 'block'; // Show the div
+          document.getElementById("myFlagValue").innerHTML = myMessage + flagValue;
+        } else {
+          div.style.display = 'none'; // Hide the div
+          document.getElementById("myFlagValue").innerHTML = myMessage + flagValue;
+        }
+          //end of my own code here:
+          
           const label = 'Feature flag ' + flagKey + ' is ' + flagValue + ' for this context';
           div.replaceChild(document.createTextNode(label), div.firstChild);
         }
@@ -58,12 +73,14 @@
       main();
         
       </script>
+
+       <!-- My Container for displaying messages -->
       <div>
-        <p id="demo"></p>
+        <p id="demo"><span id="myFlagValue"></span></p>
       </div>
       
 <script>
-  document.getElementById("demo").innerHTML = "Your paragraph is here Steven- on github";
+  
 </script>
 
     </body>
