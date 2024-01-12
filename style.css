@@ -7,7 +7,8 @@
     height:250px;
     padding: 50px;
     margin: 50px;
-    background-color:darkseagreen;
+    background-color:black;
+    color: white;
     border-radius: 10px;;
-    border: 1px solid black;
+    border: 1px solid gray;
 }
