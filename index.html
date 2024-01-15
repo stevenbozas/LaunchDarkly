@@ -38,7 +38,7 @@
 
           //adding my own code here:
           // Check the value of the feature flag to determine whether to display the div
-          var myMessage = "You are here " + context["name"]  + "- on github, and the feature flag is currently : "
+          var myMessage = "Hi " + context["name"]  + "- on github - the feature flag is currently : "
         if (flagValue) {
           //div.style.display = 'block'; // Show the div
           document.getElementById("myFlagValue").innerHTML = myMessage + flagValue;
