@@ -1,1 +1,19 @@
 
+Create a Feature Flag called Show MainParagraph (The key should be show-main-paragraph)
+I am using the client side Javascript SDK.
+
+You will  need to modify line 15 with your own client-side ID.
+
+In my example code, you will be prompted to provide a user name on line 27.
+or you could just comment out line 27 (context["name"] = prompt("What is your name ?"))
+and hard code the user name which is currently 'Steven Bozas' on line 25.
+
+
+Create a targeting rule targeting 2 users : 
+  1 - Enabled - 'Steven Bozas github' with context 'github-context-key'.
+
+  2 - Disabled - 'Steven Bozas' with context 'bozas.co.uk-context-key'.
+
+The default rule is Enabled if contexts dont match any targetting rules.
+
+To test targeting you will need to update the context-key on line 24 in the code - For my testing I was using a local version of the html, a copy on github and a copy on my personal website(Each with a different context-key)
