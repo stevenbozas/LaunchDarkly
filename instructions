@@ -1,8 +1,13 @@
 
+You will  need to modify line 15 with your own client-side ID. 
+To find this select 'Account Settings' from your LaunchDarkly console, 
+select the 'Projects' Tab, select the name of your Project, and you will see the keys, including the 'Client-side ID' - 
+Click on the copy icon and paste onto line 15 of the code.
+(See 1.png)
+
 For this code to work, you should create a Feature Flag called Show MainParagraph (The key should be show-main-paragraph)
 I am using the client side Javascript SDK.
-
-You will  need to modify line 15 with your own client-side ID. To find this select 'Account Settings' from your LaunchDarkly console, select the 'Projects' Tab, select the name of your Project, and you will see the keys, including the 'Client-side ID' - Click on the copy icon and paste onto line 15 of the code.
+(See 2.png)
 
 In my example code, you will be prompted to provide a user name on line 27.
 or you could just comment out line 27 (context["name"] = prompt("What is your name ?"))
@@ -10,9 +15,11 @@ and hard code the user name which is currently 'Fred' on line 25.
 The key will append the name entered with 'context-key-'
 
 Create a targeting rule targeting 2 users : 
+
 	In my case, I launched the page, and entered the name 'Magnum', I then reloaded the page and entered 'Steven'.
-	
 	I then modified the flag to target these 2 users - Magnum has the flag enabled, and Steven has it disabled.
+(See 3.png)
+(See 4.png)
 
 The default rule is Disabled if contexts don't match any targetting rules.
 
