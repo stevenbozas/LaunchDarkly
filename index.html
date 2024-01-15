@@ -21,10 +21,13 @@
         // LaunchDarkly contexts dashboard soon after you run the demo.
         const context = {
           kind: 'user',
-          key: 'github-context-key',
+          key: 'github-context-key-',
           name: 'Steven Bozas'
         };
-        context["name"] = prompt("What is your name ?")
+        var strName = prompt("What is your name ?")
+        context["name"] = strName;
+        context["key"] += strName;
+        console.log(context["key"]);
 
         var div = document.createElement('div');
         document.body.appendChild(div);
